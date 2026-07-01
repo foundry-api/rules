@@ -1,0 +1,12 @@
+{
+	"name": "@foundry-api/rules",
+	"version": "0.1.0",
+	"description": "Central rules and policies for Foundry Api",
+	"license": "MIT",
+	"type": "commonjs",
+	"main": "README.md",
+	"files": ["README.md", "docs"],
+	"publishConfig": {
+		"access": "public"
+	}
+}
