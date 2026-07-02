@@ -19,6 +19,11 @@ Central source of truth for Foundry Api rules and policies.
 - [Synchronization API](./docs/sync-api.md)
 - [AGENTS Policy](./docs/agents-policy.md)
 
+## Roadmap
+
+- [Foundry Api MVP Roadmap](./docs/mvp-roadmap.md)
+- [Foundry Api MVP REST CRUD Spec](./docs/mvp-rest-crud-spec.md)
+
 ## Contributing
 
 - [Contributing Guide](./CONTRIBUTING.md)
