@@ -5,13 +5,16 @@
  * @param sourceRepositoryPath - The source repository path used for the sync.
  * @returns The changelog contents.
  */
-export function renderChangelogSkeleton(generatedAtUtc: string, sourceRepositoryPath: string): string {
-  return [
-    "# Changelog",
-    "",
-    "## Unreleased",
-    "",
-    `- Synchronized from ${sourceRepositoryPath} at ${generatedAtUtc}.`,
-    "",
-  ].join("\n");
+export function renderChangelogSkeleton(
+	generatedAtUtc: string,
+	sourceRepositoryPath: string,
+): string {
+	return [
+		"# Changelog",
+		"",
+		"## Unreleased",
+		"",
+		`- Synchronized from ${sourceRepositoryPath} at ${generatedAtUtc}.`,
+		"",
+	].join("\n");
 }

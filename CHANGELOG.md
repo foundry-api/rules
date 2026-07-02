@@ -8,6 +8,7 @@
 - Define commit granularity rules and a contribution guide.
 - Add a reusable `CONTRIBUTING.md` across all repositories.
 - Define a strict Semantic Versioning and release-tag policy.
+- Add ESLint, Prettier, Husky, and coverage scripts to the rules repo itself.
 
 ## 0.1.0
 

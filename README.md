@@ -26,6 +26,7 @@ Central source of truth for Foundry Api rules and policies.
 ## Skills
 
 - [Backend Foundations](./skills/backend-foundations/SKILL.md)
+
 ## Purpose
 
 This repository defines the official documentation and policy set that must be replicated across every Foundry Api repository.
@@ -43,7 +44,7 @@ Treat this repository as the source of truth. When a rule changes here, the down
 The package exposes a programmatic sync entry point that downstream repositories can consume as a dependency.
 
 ```ts
-import { syncRulesToRepository } from "@foundry-api/rules"
+import { syncRulesToRepository } from "@foundry-api/rules";
 ```
 
 Use `syncRulesToRepository` for one repository or `syncRulesToWorkspace` for a batch of repositories.

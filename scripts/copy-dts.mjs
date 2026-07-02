@@ -14,29 +14,32 @@ const targetRoot = join(repositoryRoot, "dist");
  * @returns {Promise<Array<string>>} The declaration files found under the directory.
  */
 async function collectDeclarationFiles(directory) {
-  const entries = await readdir(directory, { withFileTypes: true });
-  const declarationFiles = [];
+	const entries = await readdir(directory, { withFileTypes: true });
+	const declarationFiles = [];
 
-  for (const entry of entries) {
-    const entryPath = join(directory, entry.name);
+	for (const entry of entries) {
+		const entryPath = join(directory, entry.name);
 
-    if (entry.isDirectory()) {
-      declarationFiles.push(...(await collectDeclarationFiles(entryPath)));
-      continue;
-    }
+		if (entry.isDirectory()) {
+			declarationFiles.push(...(await collectDeclarationFiles(entryPath)));
+			continue;
+		}
 
-    if (entry.isFile() && entry.name.endsWith(".d.ts")) {
-      declarationFiles.push(entryPath);
-    }
-  }
+		if (entry.isFile() && entry.name.endsWith(".d.ts")) {
+			declarationFiles.push(entryPath);
+		}
+	}
 
-  return declarationFiles;
+	return declarationFiles;
 }
 
 const declarationFiles = await collectDeclarationFiles(sourceRoot);
 
 for (const declarationFile of declarationFiles) {
-  const destinationFile = join(targetRoot, relative(sourceRoot, declarationFile));
-  await mkdir(dirname(destinationFile), { recursive: true });
-  await cp(declarationFile, destinationFile);
+	const destinationFile = join(
+		targetRoot,
+		relative(sourceRoot, declarationFile),
+	);
+	await mkdir(dirname(destinationFile), { recursive: true });
+	await cp(declarationFile, destinationFile);
 }
