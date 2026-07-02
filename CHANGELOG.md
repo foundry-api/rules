@@ -16,6 +16,7 @@
 - Record the first core runtime alignment workstream as completed in the roadmap.
 - Record the canonical Express CRUD route helper workstream as completed in the roadmap.
 - Record the Express CRUD route helper task as completed with the MVP contract.
+- Record the canonical Sequelize query normalization task as completed with the MVP contract.
 
 ## 0.1.0
 

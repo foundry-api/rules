@@ -11,6 +11,7 @@ Deliver a minimal but production-oriented Foundry Api stack that lets a develope
 - [x] Add canonical CRUD query constants and controller metadata primitives to `@foundry-api/contracts`. Completed at UTC 2026-07-02T17:11:46Z.
 - [x] Align the `core` base controller with the MVP base path and model contract. Completed at UTC 2026-07-02T17:16:29Z.
 - [x] Add canonical Express CRUD route helpers for the MVP REST contract. Completed at UTC 2026-07-02T18:43:23Z.
+- [x] Add canonical Sequelize query normalization for the MVP CRUD contract. Completed at UTC 2026-07-02T18:48:30Z.
 - [ ] Lock the canonical contract model for the MVP.
 - [ ] Implement the MVP runtime stack.
 - [ ] Validate the end-to-end example.
@@ -187,7 +188,7 @@ The MVP is complete when a developer can define one controller and obtain all of
 
 ### 6. Sequelize Provider
 
-- [ ] Map the repository contract to Sequelize models and instances.
+- [x] Map the repository contract to Sequelize models and instances.
   - Translate the shared repository API into Sequelize operations.
   - Keep the translation layer isolated from the rest of the framework.
 - [ ] Support read, create, update, delete, restore, count, and relation loading behaviors.
