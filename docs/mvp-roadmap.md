@@ -10,6 +10,7 @@ Deliver a minimal but production-oriented Foundry Api stack that lets a develope
 - [x] Expose the roadmap and spec from the `rules` README. Completed at UTC 2026-07-02T17:04:52Z.
 - [x] Add canonical CRUD query constants and controller metadata primitives to `@foundry-api/contracts`. Completed at UTC 2026-07-02T17:11:46Z.
 - [x] Align the `core` base controller with the MVP base path and model contract. Completed at UTC 2026-07-02T17:16:29Z.
+- [x] Add canonical Express CRUD route helpers for the MVP REST contract. Completed at UTC 2026-07-02T18:43:23Z.
 - [ ] Lock the canonical contract model for the MVP.
 - [ ] Implement the MVP runtime stack.
 - [ ] Validate the end-to-end example.
@@ -162,7 +163,7 @@ The MVP is complete when a developer can define one controller and obtain all of
 
 ### 5. Express Provider
 
-- [ ] Register CRUD routes automatically from the core controller contract.
+- [x] Register CRUD routes automatically from the core controller contract.
   - Support registration from controller metadata rather than manual per-route wiring.
   - Keep route registration independent from ORM specifics.
 - [ ] Map the canonical endpoints for list, fetch, create, update, delete, trash, and restore.

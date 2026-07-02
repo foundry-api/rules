@@ -14,6 +14,8 @@
 - Turn the MVP roadmap into a checklist-driven execution board with UTC completion stamps.
 - Record the first MVP contract workstream as completed in the roadmap.
 - Record the first core runtime alignment workstream as completed in the roadmap.
+- Record the canonical Express CRUD route helper workstream as completed in the roadmap.
+- Record the Express CRUD route helper task as completed with the MVP contract.
 
 ## 0.1.0
 
