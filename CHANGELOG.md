@@ -12,6 +12,7 @@
 - Add a visible MVP roadmap for the initial Foundry Api launch.
 - Add a detailed MVP REST CRUD specification for the initial product launch.
 - Turn the MVP roadmap into a checklist-driven execution board with UTC completion stamps.
+- Record the first MVP contract workstream as completed in the roadmap.
 
 ## 0.1.0
 

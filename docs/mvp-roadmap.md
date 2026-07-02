@@ -8,6 +8,7 @@ Deliver a minimal but production-oriented Foundry Api stack that lets a develope
 
 - [x] Define the MVP roadmap and the REST CRUD specification. Completed at UTC 2026-07-02T17:04:52Z.
 - [x] Expose the roadmap and spec from the `rules` README. Completed at UTC 2026-07-02T17:04:52Z.
+- [x] Add canonical CRUD query constants and controller metadata primitives to `@foundry-api/contracts`. Completed at UTC 2026-07-02T17:11:46Z.
 - [ ] Lock the canonical contract model for the MVP.
 - [ ] Implement the MVP runtime stack.
 - [ ] Validate the end-to-end example.
