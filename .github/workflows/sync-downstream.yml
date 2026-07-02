@@ -1,0 +1,33 @@
+name: Sync Downstream Repositories
+
+env:
+  SYNC_DOWNSTREAM_ENABLED: "false"
+
+on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+
+jobs:
+  sync:
+    name: Sync docs, agents, and skills
+    if: ${{ github.event_name != 'workflow_dispatch' || github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Check out rules
+        uses: actions/checkout@v4
+
+      - name: Inspect sync toggle
+        run: echo "SYNC_DOWNSTREAM_ENABLED=${SYNC_DOWNSTREAM_ENABLED}"
+
+      - name: Sync downstream repositories
+        if: ${{ env.SYNC_DOWNSTREAM_ENABLED == 'true' }}
+        run: echo "Synchronization is enabled."
+
+      - name: Skip synchronization
+        if: ${{ env.SYNC_DOWNSTREAM_ENABLED != 'true' }}
+        run: echo "Synchronization is disabled."

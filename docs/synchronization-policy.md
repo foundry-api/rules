@@ -9,6 +9,8 @@ Keep the rules repository as the single source of truth while ensuring downstrea
 - This repository owns the canonical version of the rules.
 - Downstream repositories must copy or sync the rules from this repository.
 - Rule changes should be propagated through an automated workflow.
+- Downstream synchronization is allowed only after a versioned release is published.
+- Repository-local skill copies must be synchronized alongside the rules.
 - Prefer pull requests over direct commits when syncing downstream repositories.
 - Keep repository-specific README notes local, but keep the rule set itself consistent.
 - Do not use cross-repo relative links as a synchronization mechanism.

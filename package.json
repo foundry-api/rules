@@ -4,9 +4,43 @@
 	"description": "Central rules and policies for Foundry Api",
 	"license": "MIT",
 	"type": "commonjs",
-	"main": "README.md",
-	"files": ["README.md", "docs"],
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"require": "./dist/index.js",
+			"default": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist",
+		"README.md",
+		"AGENTS.md",
+		"CONTRIBUTING.md",
+		"CHANGELOG.md",
+		"docs",
+		"skills",
+		"templates"
+	],
 	"publishConfig": {
 		"access": "public"
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json && node scripts/copy-dts.mjs",
+		"clean": "rm -rf dist",
+		"prepack": "npm run build",
+		"test": "TS_NODE_TRANSPILE_ONLY=1 node --require ts-node/register/transpile-only --test tests/**/*.test.ts",
+		"typecheck": "tsc -p tsconfig.json --noEmit",
+		"yalc:publish": "yalc publish",
+		"yalc:push": "yalc push",
+		"yalc:remove": "yalc remove",
+		"sync:rules": "node scripts/sync-rules.cjs"
+	},
+	"devDependencies": {
+		"@types/node": "^22.0.0",
+		"ts-node": "^10.9.2",
+		"typescript": "^6.0.0",
+		"yalc": "^1.0.0-pre.53"
 	}
 }
