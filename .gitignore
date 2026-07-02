@@ -1,6 +1,7 @@
 node_modules/
 dist/
 coverage/
+.nyc_output/
 logs/
 tmp/
 temp/
@@ -15,6 +16,7 @@ yarn-error.log*
 .DS_Store
 .vscode/
 .idea/
+.husky/_/
 tsconfig.tsbuildinfo
 .yalc/
 yalc.lock
