@@ -2,7 +2,7 @@
 
 ## Goal
 
-This document explains how to contribute to Foundry Api repositories in a predictable and maintainable way.
+This document explains how to contribute to Foundry API repositories in a predictable and maintainable way.
 
 ## Ways To Contribute
 
@@ -16,12 +16,12 @@ This document explains how to contribute to Foundry Api repositories in a predic
 ### Code Contributions
 
 - Pick an issue or feature scope before writing code.
-- Create a branch that follows the repository Git flow.
+- Create a short-lived branch that follows the repository Git flow.
 - Keep each commit atomic and limited to one logical change or a tightly related set of changes.
-- Split large work into smaller commits that can be reviewed independently.
+- Use Conventional Commits for commit messages.
 - Update tests for every new behavior or bug fix.
-- Update `CHANGELOG.md` before requesting a release.
-- Run the required quality gates before opening or updating a pull request.
+- Update `CHANGELOG.md` in the same branch or pull request as the change.
+- Run lint, format, typecheck, and tests before opening or updating a pull request.
 
 ### Financial Support
 

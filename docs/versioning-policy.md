@@ -2,7 +2,7 @@
 
 ## Goal
 
-Use one deterministic versioning scheme across Foundry Api repositories so releases, changelogs, and downstream synchronization stay aligned.
+Use one deterministic versioning scheme across Foundry API repositories so releases, changelogs, and downstream synchronization stay aligned.
 
 ## Rules
 

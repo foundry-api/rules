@@ -1,8 +1,8 @@
-# Foundry Api MVP REST CRUD Spec
+# Foundry API MVP REST CRUD Spec
 
 ## Goal
 
-Define the initial REST API behavior that Foundry Api must generate for the MVP launch.
+Define the initial REST API behavior that Foundry API must generate for the MVP launch.
 
 The product must expose a usable REST CRUD API with:
 
@@ -47,7 +47,7 @@ Each controller must be able to declare:
 
 ### Controller With Model
 
-When a controller defines a model, Foundry Api must be able to generate a full CRUD surface automatically.
+When a controller defines a model, Foundry API must be able to generate a full CRUD surface automatically.
 
 If the base path is omitted, the framework must derive it by pluralizing the entity or model name.
 
@@ -246,7 +246,7 @@ The MVP is complete when:
 
 - a developer can define one application entry point
 - a developer can define one controller with a model, base path, create schema, and update schema
-- Foundry Api generates the CRUD endpoints automatically
+- Foundry API generates the CRUD endpoints automatically
 - the generated endpoints support pagination, search, ordering, inclusion, and field selection
 - soft delete behavior works when supported by the model
 - OpenAPI is generated automatically

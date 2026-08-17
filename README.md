@@ -1,6 +1,6 @@
 # @foundry-api/rules
 
-Central source of truth for Foundry Api rules and policies.
+Central source of truth for Foundry API rules and policies.
 
 ## Rules
 
@@ -21,12 +21,16 @@ Central source of truth for Foundry Api rules and policies.
 
 ## Roadmap
 
-- [Foundry Api MVP Roadmap](./docs/mvp-roadmap.md)
-- [Foundry Api MVP REST CRUD Spec](./docs/mvp-rest-crud-spec.md)
+- [Foundry API MVP Roadmap](./docs/mvp-roadmap.md)
+- [Foundry API MVP REST CRUD Spec](./docs/mvp-rest-crud-spec.md)
 
 ## Contributing
 
 - [Contributing Guide](./CONTRIBUTING.md)
+
+## Changelog
+
+- [Changelog](./CHANGELOG.md)
 
 ## Skills
 
@@ -34,7 +38,7 @@ Central source of truth for Foundry Api rules and policies.
 
 ## Purpose
 
-This repository defines the official documentation and policy set that must be replicated across every Foundry Api repository.
+This repository defines the official documentation and policy set that must be replicated across every Foundry API repository.
 
 ## Distribution
 

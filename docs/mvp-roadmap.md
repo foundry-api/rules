@@ -1,8 +1,8 @@
-# Foundry Api MVP Roadmap
+# Foundry API MVP Roadmap
 
 ## Goal
 
-Deliver a minimal but production-oriented Foundry Api stack that lets a developer create a CRUD API with Express, Sequelize, OpenAPI, and file logging in a small number of lines.
+Deliver a minimal but production-oriented Foundry API stack that lets a developer create a CRUD API with Express, Sequelize, OpenAPI, and file logging in a small number of lines.
 
 ## Current State
 
