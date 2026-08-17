@@ -1,14 +1,14 @@
 export {
-  syncFoundryApiRulesToRepository,
-  syncFoundryApiRulesToWorkspace,
-  syncRulesToRepository,
-  syncRulesToWorkspace,
+	syncFoundryApiRulesToRepository,
+	syncFoundryApiRulesToWorkspace,
+	syncRulesToRepository,
+	syncRulesToWorkspace,
 } from "./sync/index";
 export type {
-  MarkdownSection,
-  SyncRepositoryOptions,
-  SyncRepositoryResult,
-  SyncTarget,
-  SyncWorkspaceOptions,
-  SyncWorkspaceResult,
+	MarkdownSection,
+	SyncRepositoryOptions,
+	SyncRepositoryResult,
+	SyncTarget,
+	SyncWorkspaceOptions,
+	SyncWorkspaceResult,
 } from "./sync/types";

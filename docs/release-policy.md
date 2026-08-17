@@ -2,7 +2,7 @@
 
 ## Goal
 
-Release versions are the only approved mechanism for publishing Foundry Api rules to downstream repositories.
+Release versions are the only approved mechanism for publishing Foundry API rules to downstream repositories.
 
 ## Rules
 
@@ -15,7 +15,6 @@ Release versions are the only approved mechanism for publishing Foundry Api rule
 - A downstream synchronization run may happen only after a new version is published.
 - The synchronization workflow must use the release published from `main` as its source of truth.
 - Draft changes, feature branches, and untagged commits must not trigger downstream synchronization.
-- The published release must include the rule documents, generated `AGENTS.md` files, and repository-local skill copies.
 - The published release must include the rule documents, generated `AGENTS.md` files, `CONTRIBUTING.md`, and repository-local skill copies.
 - Any sync failure after release must be treated as a release issue and fixed before the next downstream update.
 

@@ -7,15 +7,15 @@ import { dirname } from "node:path";
  * @name PackageJsonDocument
  */
 export interface PackageJsonDocument {
-  /**
-   * Package scripts keyed by command name.
-   */
-  readonly scripts?: Record<string, string>;
+	/**
+	 * Package scripts keyed by command name.
+	 */
+	readonly scripts?: Record<string, string>;
 
-  /**
-   * Remaining package metadata.
-   */
-  readonly [key: string]: unknown;
+	/**
+	 * Remaining package metadata.
+	 */
+	readonly [key: string]: unknown;
 }
 
 /**
@@ -28,19 +28,23 @@ export interface PackageJsonDocument {
  * @throws {Error} Throws when the package.json file cannot be parsed.
  */
 export async function ensurePackageSyncScript(
-  packageJsonPath: string,
-  scriptName: string,
-  scriptCommand: string,
+	packageJsonPath: string,
+	scriptName: string,
+	scriptCommand: string,
 ): Promise<boolean> {
-  const packageJson = await readPackageJson(packageJsonPath);
-  const nextPackageJson = applySyncScript(packageJson, scriptName, scriptCommand);
-  const packageJsonChanged = nextPackageJson !== packageJson;
+	const packageJson = await readPackageJson(packageJsonPath);
+	const nextPackageJson = applySyncScript(
+		packageJson,
+		scriptName,
+		scriptCommand,
+	);
+	const packageJsonChanged = nextPackageJson !== packageJson;
 
-  if (packageJsonChanged) {
-    await writePackageJson(packageJsonPath, nextPackageJson);
-  }
+	if (packageJsonChanged) {
+		await writePackageJson(packageJsonPath, nextPackageJson);
+	}
 
-  return packageJsonChanged;
+	return packageJsonChanged;
 }
 
 /**
@@ -50,15 +54,18 @@ export async function ensurePackageSyncScript(
  * @param helperContents - The helper file contents.
  * @returns A boolean indicating whether the file was written.
  */
-export async function ensureSyncHelperFile(helperPath: string, helperContents: string): Promise<boolean> {
-  try {
-    await readFile(helperPath, "utf8");
-    return false;
-  } catch {
-    await mkdir(dirname(helperPath), { recursive: true });
-    await writeFile(helperPath, helperContents, "utf8");
-    return true;
-  }
+export async function ensureSyncHelperFile(
+	helperPath: string,
+	helperContents: string,
+): Promise<boolean> {
+	try {
+		await readFile(helperPath, "utf8");
+		return false;
+	} catch {
+		await mkdir(dirname(helperPath), { recursive: true });
+		await writeFile(helperPath, helperContents, "utf8");
+		return true;
+	}
 }
 
 /**
@@ -67,9 +74,11 @@ export async function ensureSyncHelperFile(helperPath: string, helperContents: s
  * @param packageJsonPath - The path to the package.json file.
  * @returns The parsed package manifest.
  */
-async function readPackageJson(packageJsonPath: string): Promise<PackageJsonDocument> {
-  const rawContents = await readFile(packageJsonPath, "utf8");
-  return JSON.parse(rawContents) as PackageJsonDocument;
+async function readPackageJson(
+	packageJsonPath: string,
+): Promise<PackageJsonDocument> {
+	const rawContents = await readFile(packageJsonPath, "utf8");
+	return JSON.parse(rawContents) as PackageJsonDocument;
 }
 
 /**
@@ -78,9 +87,12 @@ async function readPackageJson(packageJsonPath: string): Promise<PackageJsonDocu
  * @param packageJsonPath - The file path to write.
  * @param packageJson - The package manifest to store.
  */
-async function writePackageJson(packageJsonPath: string, packageJson: PackageJsonDocument): Promise<void> {
-  const serialized = `${JSON.stringify(packageJson, null, "\t")}\n`;
-  await writeFile(packageJsonPath, serialized, "utf8");
+async function writePackageJson(
+	packageJsonPath: string,
+	packageJson: PackageJsonDocument,
+): Promise<void> {
+	const serialized = `${JSON.stringify(packageJson, null, "\t")}\n`;
+	await writeFile(packageJsonPath, serialized, "utf8");
 }
 
 /**
@@ -92,25 +104,25 @@ async function writePackageJson(packageJsonPath: string, packageJson: PackageJso
  * @returns The next package manifest.
  */
 function applySyncScript(
-  packageJson: PackageJsonDocument,
-  scriptName: string,
-  scriptCommand: string,
+	packageJson: PackageJsonDocument,
+	scriptName: string,
+	scriptCommand: string,
 ): PackageJsonDocument {
-  const currentScripts = packageJson.scripts ?? {};
+	const currentScripts = packageJson.scripts ?? {};
 
-  if (currentScripts[scriptName] === scriptCommand) {
-    return packageJson;
-  }
+	if (currentScripts[scriptName] === scriptCommand) {
+		return packageJson;
+	}
 
-  if (currentScripts[scriptName] !== undefined) {
-    return packageJson;
-  }
+	if (currentScripts[scriptName] !== undefined) {
+		return packageJson;
+	}
 
-  return {
-    ...packageJson,
-    scripts: {
-      ...currentScripts,
-      [scriptName]: scriptCommand,
-    },
-  };
+	return {
+		...packageJson,
+		scripts: {
+			...currentScripts,
+			[scriptName]: scriptCommand,
+		},
+	};
 }

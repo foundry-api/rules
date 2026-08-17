@@ -16,7 +16,7 @@ Use the `backend-foundations` skill from `skills/backend-foundations/SKILL.md` b
 
 ### Purpose
 
-`@foundry-api/rules` is the canonical source of truth for Foundry Api policies. It defines the repository-wide rules that must be replicated into every Foundry repository.
+`@foundry-api/rules` is the canonical source of truth for Foundry API policies. It defines the repository-wide rules that must be replicated into every Foundry repository.
 
 ### Read First
 

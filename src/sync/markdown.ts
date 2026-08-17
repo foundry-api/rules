@@ -1,8 +1,8 @@
 import {
-  LOCAL_SCOPE_HEADING,
-  RULES_SECTION_HEADING,
-  SKILLS_SECTION_HEADING,
-  SYNCED_RULES_HEADING,
+	LOCAL_SCOPE_HEADING,
+	RULES_SECTION_HEADING,
+	SKILLS_SECTION_HEADING,
+	SYNCED_RULES_HEADING,
 } from "./constants";
 import type { MarkdownSection } from "./types";
 
@@ -18,13 +18,16 @@ import type { MarkdownSection } from "./types";
  * const section = extractMarkdownSection("# Title\n\n## Rules\n\n- One\n\n## Skills\n");
  * ```
  */
-export function extractMarkdownSection(markdown: string, heading: string): MarkdownSection {
-  const section = findMarkdownSectionBounds(markdown, heading);
+export function extractMarkdownSection(
+	markdown: string,
+	heading: string,
+): MarkdownSection {
+	const section = findMarkdownSectionBounds(markdown, heading);
 
-  return {
-    heading,
-    body: markdown.slice(section.bodyStartIndex, section.endIndex).trim(),
-  };
+	return {
+		heading,
+		body: markdown.slice(section.bodyStartIndex, section.endIndex).trim(),
+	};
 }
 
 /**
@@ -41,18 +44,18 @@ export function extractMarkdownSection(markdown: string, heading: string): Markd
  * ```
  */
 export function replaceMarkdownSection(
-  markdown: string,
-  heading: string,
-  replacementBody: string,
+	markdown: string,
+	heading: string,
+	replacementBody: string,
 ): string {
-  const section = findMarkdownSectionBounds(markdown, heading);
-  const replacement = `${heading}\n\n${replacementBody.trim()}`;
+	const section = findMarkdownSectionBounds(markdown, heading);
+	const replacement = `${heading}\n\n${replacementBody.trim()}`;
 
-  return [
-    markdown.slice(0, section.headingStartIndex),
-    replacement,
-    markdown.slice(section.endIndex),
-  ].join("");
+	return [
+		markdown.slice(0, section.headingStartIndex),
+		replacement,
+		markdown.slice(section.endIndex),
+	].join("");
 }
 
 /**
@@ -66,12 +69,29 @@ export function replaceMarkdownSection(
  * const next = renderSynchronizedReadme(sourceReadme, targetReadme);
  * ```
  */
-export function renderSynchronizedReadme(sourceReadme: string, targetReadme: string): string {
-  const rulesSection = extractMarkdownSection(sourceReadme, RULES_SECTION_HEADING);
-  const skillsSection = extractMarkdownSection(sourceReadme, SKILLS_SECTION_HEADING);
+export function renderSynchronizedReadme(
+	sourceReadme: string,
+	targetReadme: string,
+): string {
+	const rulesSection = extractMarkdownSection(
+		sourceReadme,
+		RULES_SECTION_HEADING,
+	);
+	const skillsSection = extractMarkdownSection(
+		sourceReadme,
+		SKILLS_SECTION_HEADING,
+	);
 
-  const withRules = replaceMarkdownSection(targetReadme, RULES_SECTION_HEADING, rulesSection.body);
-  return replaceMarkdownSection(withRules, SKILLS_SECTION_HEADING, skillsSection.body);
+	const withRules = replaceMarkdownSection(
+		targetReadme,
+		RULES_SECTION_HEADING,
+		rulesSection.body,
+	);
+	return replaceMarkdownSection(
+		withRules,
+		SKILLS_SECTION_HEADING,
+		skillsSection.body,
+	);
 }
 
 /**
@@ -89,32 +109,38 @@ export function renderSynchronizedReadme(sourceReadme: string, targetReadme: str
  * ```
  */
 export function renderSynchronizedAgents(
-  sourceAgents: string,
-  targetAgents: string,
-  sourceRepositoryPath: string,
-  generatedAtUtc: string,
+	sourceAgents: string,
+	targetAgents: string,
+	sourceRepositoryPath: string,
+	generatedAtUtc: string,
 ): string {
-  const localScope = extractMarkdownSection(targetAgents, LOCAL_SCOPE_HEADING).body;
-  const syncedRules = extractMarkdownSection(sourceAgents, SYNCED_RULES_HEADING).body;
+	const localScope = extractMarkdownSection(
+		targetAgents,
+		LOCAL_SCOPE_HEADING,
+	).body;
+	const syncedRules = extractMarkdownSection(
+		sourceAgents,
+		SYNCED_RULES_HEADING,
+	).body;
 
-  return [
-    `<!-- AUTO-GENERATED FROM: ${sourceRepositoryPath} -->`,
-    `<!-- GENERATED_AT_UTC: ${generatedAtUtc} -->`,
-    "<!-- DO NOT EDIT THE SYNCED SECTIONS MANUALLY -->",
-    "",
-    "# AGENTS",
-    "",
-    "Use the `backend-foundations` skill from `skills/backend-foundations/SKILL.md` before editing this repository.",
-    "",
-    "## Local Scope",
-    "",
-    localScope,
-    "",
-    "## Synced Global Rules",
-    "",
-    syncedRules,
-    "",
-  ].join("\n");
+	return [
+		`<!-- AUTO-GENERATED FROM: ${sourceRepositoryPath} -->`,
+		`<!-- GENERATED_AT_UTC: ${generatedAtUtc} -->`,
+		"<!-- DO NOT EDIT THE SYNCED SECTIONS MANUALLY -->",
+		"",
+		"# AGENTS",
+		"",
+		"Use the `backend-foundations` skill from `skills/backend-foundations/SKILL.md` before editing this repository.",
+		"",
+		"## Local Scope",
+		"",
+		localScope,
+		"",
+		"## Synced Global Rules",
+		"",
+		syncedRules,
+		"",
+	].join("\n");
 }
 
 /**
@@ -125,10 +151,10 @@ export function renderSynchronizedAgents(
  * @returns The index of the next heading or the end of the document.
  */
 function findNextHeadingIndex(markdown: string, fromIndex: number): number {
-  const headingPattern = /\n##\s+/g;
-  headingPattern.lastIndex = fromIndex;
-  const match = headingPattern.exec(markdown);
-  return match?.index ?? markdown.length;
+	const headingPattern = /\n##\s+/g;
+	headingPattern.lastIndex = fromIndex;
+	const match = headingPattern.exec(markdown);
+	return match?.index ?? markdown.length;
 }
 
 /**
@@ -140,25 +166,25 @@ function findNextHeadingIndex(markdown: string, fromIndex: number): number {
  * @throws {Error} Throws when the heading is not present in the document.
  */
 function findMarkdownSectionBounds(
-  markdown: string,
-  heading: string,
+	markdown: string,
+	heading: string,
 ): {
-  readonly bodyStartIndex: number;
-  readonly endIndex: number;
-  readonly headingStartIndex: number;
+	readonly bodyStartIndex: number;
+	readonly endIndex: number;
+	readonly headingStartIndex: number;
 } {
-  const headingIndex = markdown.indexOf(`${heading}\n`);
+	const headingIndex = markdown.indexOf(`${heading}\n`);
 
-  if (headingIndex < 0) {
-    throw new Error(`Could not find markdown heading: ${heading}`);
-  }
+	if (headingIndex < 0) {
+		throw new Error(`Could not find markdown heading: ${heading}`);
+	}
 
-  const bodyStartIndex = headingIndex + heading.length + 1;
-  const endIndex = findNextHeadingIndex(markdown, bodyStartIndex);
+	const bodyStartIndex = headingIndex + heading.length + 1;
+	const endIndex = findNextHeadingIndex(markdown, bodyStartIndex);
 
-  return {
-    bodyStartIndex,
-    endIndex,
-    headingStartIndex: headingIndex,
-  };
+	return {
+		bodyStartIndex,
+		endIndex,
+		headingStartIndex: headingIndex,
+	};
 }

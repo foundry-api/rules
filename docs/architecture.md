@@ -2,7 +2,7 @@
 
 ## Goal
 
-Foundry Api must stay framework-agnostic at the core and technology-specific at the edges.
+Foundry API must stay framework-agnostic at the core and technology-specific at the edges.
 
 ## Rules
 

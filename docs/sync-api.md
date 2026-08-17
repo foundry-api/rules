@@ -20,11 +20,11 @@ They can:
 
 ## Responsibilities
 
-- The API should handle generation and file writing only.
+- The sync API should handle generation and file writing only.
 - Git operations should stay outside the core generator unless explicitly required.
 - Repo-specific writes should remain scoped to the target repository.
 - The helper should be composable so future sync strategies can reuse the same renderer.
-- When a target repository is updated, the API should create a `sync:rules` script in `package.json` if it is missing.
+- When a target repository is updated, the sync API should create a `sync:rules` script in `package.json` if it is missing.
 - The generated `sync:rules` script should call a local helper file under `scripts/`.
 
 ## Expected Inputs

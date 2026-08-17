@@ -9,7 +9,8 @@
  *
  * @constant
  */
-export const BACKEND_FOUNDATIONS_SKILL_PATH = "skills/backend-foundations/SKILL.md";
+export const BACKEND_FOUNDATIONS_SKILL_PATH =
+	"skills/backend-foundations/SKILL.md";
 
 /**
  * The repository-relative path for the generated AGENTS file.
